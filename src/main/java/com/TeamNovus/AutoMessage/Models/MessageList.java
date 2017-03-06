@@ -169,7 +169,7 @@ public class MessageList {
 				if (m.contains("{YEAR}"))
 					m = m.replace("{YEAR}", Calendar.getInstance().get(Calendar.YEAR) + "");
 				if (m.contains("{MONTH}"))
-					m = m.replace("{MONTH}", Calendar.getInstance().get(Calendar.MONTH) + "");
+					m = m.replace("{MONTH}", (Calendar.getInstance().get(Calendar.MONTH) + 1) + "");
 				if (m.contains("{WEEK_OF_MONTH}"))
 					m = m.replace("{WEEK_OF_MONTH}", Calendar.getInstance().get(Calendar.WEEK_OF_MONTH) + "");
 				if (m.contains("{WEEK_OF_YEAR}"))
