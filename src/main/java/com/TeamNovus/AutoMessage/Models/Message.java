@@ -2,7 +2,7 @@ package com.TeamNovus.AutoMessage.Models;
 
 import java.util.LinkedList;
 
-import org.bukkit.Bukkit;
+import net.md_5.bungee.chat.ComponentSerializer;
 
 public class Message {
 	private static final String SPLIT_REGEX = "(?<!\\\\)\\\\n";
@@ -27,8 +27,7 @@ public class Message {
 
 	public boolean isJsonMessage(int index) {
 		try {
-			String v = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
-			Class.forName("net.minecraft.server." + v + ".IChatBaseComponent$ChatSerializer").getMethod("a", String.class).invoke(null, getMessages().get(index));
+			ComponentSerializer.parse(getMessages().get(index));
 			return true;
 		} catch (Exception e) {
 			return false;
