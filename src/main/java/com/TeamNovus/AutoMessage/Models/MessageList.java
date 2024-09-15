@@ -1,5 +1,6 @@
 package com.TeamNovus.AutoMessage.Models;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
@@ -188,7 +189,7 @@ public class MessageList {
 				if (m.contains("{HOUR_OF_DAY}"))
 					m = m.replace("{HOUR_OF_DAY}", Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + "");
 				if (m.contains("{MINUTE}"))
-					m = m.replace("{MINUTE}", Calendar.getInstance().get(Calendar.MINUTE) + "");
+					m = m.replace("{MINUTE}", new DecimalFormat("00").format(Calendar.getInstance().get(Calendar.MINUTE)));
 				if (m.contains("{SECOND}"))
 					m = m.replace("{SECOND}", Calendar.getInstance().get(Calendar.SECOND) + "");
 
